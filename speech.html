@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>speech</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(35, 77, 77);
+        }
+        .main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            border-radius: 10px;
+            color: white;
+            flex-direction: column;
+            height: 300px;
+            width: 500px;
+            margin-top: 100px;
+            gap: 10px;
+
+        }
+        #text{
+            width: 400px;
+        }
+        #btn{
+            height: 40px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1>Text to speech</h1>
+        <textarea id="text" rows="6" placeholder="write here"></textarea>
+        <button id="btn">speak</button>
+
+    </div>
+    <script>
+        document.getElementById('btn').addEventListener('click',function(){
+            const text=document.getElementById('text').value;
+            if(text){
+                const speech=new SpeechSynthesisUtterance(text)
+                window.speechSynthesis.speak(speech)
+            }else{
+                alert('enter some text')
+            }
+        })
+    </script>
+</body>
+</html>
